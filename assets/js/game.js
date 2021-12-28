@@ -1,8 +1,11 @@
+/*Game Functions*/
 
+//random numeric value
 var randomNumber = function(min,max) {
     var value = Math.floor(Math.random() * (max - min + 1) + min);
-      return value;
-  };
+      
+  return value;
+};
 
   //fight function
 var fight = function(enemy) {
@@ -68,7 +71,8 @@ var startGame = function() {
 
 for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
-        window.alert("Welcome to Robot Gladiators! Round " + (i +1));
+    
+    window.alert("Welcome to Robot Gladiators! Round " + (i +1));
         //pick new enemy to fight based ont he index of the enemy.names
         var pickedEnemyObj = enemyInfo[i];
 
@@ -78,7 +82,7 @@ for (var i = 0; i < enemyInfo.length; i++) {
         fight(pickedEnemyObj);
         
         // if player is still alive and we're not at the last enemy in the array
-    if (playerInfo.health > 0 && i < enemy.names.length - 1) {
+    if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
        // ask if player wants to use the store before next round
       var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
 
@@ -153,10 +157,22 @@ case "upgrade":
 };
 /*End game functions*/
 
+/*Player Name Function*/
+//funciton to set name
+var getPlayerName = function () {
+    var name = "";
+//add loop here with prompt and condition
+while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+}
 
-//player information
+console.log("Your robot's name is " + name);
+return name;
+};
+
+/*Game Information / Variables */
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 100,
