@@ -29,7 +29,6 @@ var fightOrSkip = function() {
 
          // return true if player wants to leave
       return true;
-
       }
     }
     return false;
